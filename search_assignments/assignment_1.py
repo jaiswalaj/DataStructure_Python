@@ -35,9 +35,9 @@ def binary_search_method(data):
         elif data[mid] > data[mid+1]:
             return mid+1
         elif data[mid] > data[hi]:
-            lo = mid
+            lo = mid+1
         else:
-            hi = mid
+            hi = mid-1
 
     return 0
 
@@ -45,10 +45,15 @@ def binary_search_method(data):
 
 def main(dataset):
     counter = 0
+    failed_tests = []
+    passed_tests = []
     for data in dataset:
         start_time = time.time()
         
-        # Change the method to be called according to the algorithm you want to use
+        # Uncomment the line below to execute test cases with Linear Search Algo
+        # actual_output = linear_search_method(data['input']['nums'])
+
+        # Uncomment the line below to execute test cases with Binary Search Algo
         actual_output = binary_search_method(data['input']['nums'])
 
         end_time = time.time()
@@ -62,10 +67,20 @@ def main(dataset):
         
         if actual_output == expected_output:
             print("Test Case #", counter, ": ", "PASSED")
+            passed_tests.append(counter)
         else:
             print("Test Case #", counter, ": ", "FAILED")
+            failed_tests.append(counter)
         
         counter = counter + 1
 
+    print("\n\nTotal Number of Test Cases: ", len(tests))
+    
+    print("\nNumber of PASSED Test Cases: ", len(passed_tests))
+    print("Passed Test Cases are: ", passed_tests)
+    
+    print("\nNumber of FAILED Test Cases: ", len(failed_tests))
+    print("Failed Test Cases are: ", failed_tests)
+    
 
 main(tests)

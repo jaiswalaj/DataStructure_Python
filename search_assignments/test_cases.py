@@ -63,3 +63,70 @@ tests.append({
     },
     'output': 0
 })
+
+tests.append({
+    'input': {
+        'nums': [5, 6, 9, 0, 2, 3, 4]
+    },
+    'output': 3
+})
+
+
+
+# Test Cases for Optional Assignment 2
+
+# A list of Repeating Numbers for Assignment 2
+tests.append({
+    'input': {
+        'nums': [5, 6, 6, 9, 9, 9, 0, 0, 2, 3, 3, 3, 3, 4, 4]
+    },
+    'output': 6
+})
+
+# A list of Repeating Numbers for Assignment 2
+tests.append({
+    'input': {
+        'nums': [12, 12, 13, 13, 13, 14, 14, 0, 0, 1, 2, 2, 3, 3, 4, 4, 4, 10]
+    },
+    'output': 7
+})
+
+# A list of Repeating Numbers for Assignment 2
+tests.append({
+    'input': {
+        'nums': [12, 12, 12, 12, 12, 12, 12, 12, 13]
+    },
+    'output': 0
+})
+
+# A list of Repeating Numbers for Assignment 2
+tests.append({
+    'input': {
+        'nums': [1, 2, 2, 2, 3, 4, 5, 6, 7]
+    },
+    'output': 0
+})
+
+# A list of Repeating Numbers for Assignment 2
+tests.append({
+    'input': {
+        'nums': [9, 1, 2, 2, 2, 3, 4, 5, 6, 7, 8, 8, 9]
+    },
+    'output': 1
+})
+
+# A list of Repeating Numbers for Assignment 2
+tests.append({
+    'input': {
+        'nums': [ 1, 2, 3, 3, 3, 4, 5, 5, 5, 5, 5, 6, 7, 7, 7, 7, 7, 7, 7, 1]
+    },
+    'output': 19
+})
+
+# A list of Repeating Numbers for Assignment 2
+tests.append({
+    'input': {
+        'nums': [12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12]
+    },
+    'output': 0
+})
