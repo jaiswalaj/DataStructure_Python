@@ -1,3 +1,4 @@
+# Class for creating Binary Tree with Left, Key and Right Nodes
 class TreeNode:
     def __init__(self, key):
         self.key = key
@@ -21,12 +22,15 @@ def parse_tuple_to_tree(data):
 
 # Converts the given Binary Tree in Standard Tuple format.
 def parse_tree_to_tuple(tree):
+
+    # For checking if the given node is a sub tree or just a node
     def is_tree(subtree):
         if subtree.left or subtree.right:
             return True
         else:
             return False
 
+    # For parsing left side of the given tree into tuple
     if tree.left is None:
         left_tuple = (None)
     elif is_tree(tree.left):
@@ -34,6 +38,7 @@ def parse_tree_to_tuple(tree):
     else:
         left_tuple = (tree.left.key)
 
+    # For parsing right side of the given tree into tuple
     if tree.right is None:
         right_tuple = (None)
     elif is_tree(tree.right):
@@ -41,16 +46,21 @@ def parse_tree_to_tuple(tree):
     else:
         right_tuple = (tree.right.key)
 
+    # Returning the final tuple with left, key, and right tree data inplace
     return (left_tuple, tree.key, right_tuple)
 
 
+# Displays given Binary Tree in Tree View (Might have some issues with spaces printed on same level)
 def display_tree(tree, list_data = []):
+
+    # For displaying white spaces between nodes of same level
     def print_spaces(space_count):
         while space_count > 0:
             print(" ", end='')
             space_count = space_count - 1
 
-    def display_subtree(treenode_list, space_count):
+    # For displaying nodes in a particular level and returning a list of all the nodes in the level below
+    def display_tree_level(treenode_list, space_count):
         new_list = []
         
         for treenode in treenode_list:
@@ -74,31 +84,24 @@ def display_tree(tree, list_data = []):
 
         return new_list
     
-    
+    # For initializing the list containing all nodes of current level to be displayed for the first time
     if len(list_data) == 0:
-        list_data = display_subtree([tree], 70)
+        list_data = display_tree_level([tree], 70)
         print("\n")
     
+    # For updating the list containing all nodes of next level to be displayed
     while len(list_data) > 0:
-        list_data = display_subtree(list_data, 70 // len(list_data))
+        list_data = display_tree_level(list_data, 70 // len(list_data))
         print("\n")
     
-
-
-
-
-
-
-
 
 
 # Uncomment following variety of tree and create the tree from given tuple or vice versa
 # tree = parse_tuple_to_tree((((8, 4, 10), 1, (13, 6, None)), 2, ((None, 5, 12), 3, (11, 7, 9))))
-# tree = parse_tuple_to_tree((((6, 1, 4), 3, (9, 8, 7)), 2, ((8, 7, 6), 8, (6, 4, 2))))
+tree = parse_tuple_to_tree((((6, 1, 4), 3, (9, 8, 7)), 2, ((8, 7, 6), 8, (6, 4, 2))))
 # tree = parse_tuple_to_tree((((2, 0, 9), 3, (5, 4, 3)), 1, ((4, 5, 8), 6, (7, 8, 0))))
 # tree = parse_tuple_to_tree((((8, 5, 2), 5, None), 5, (7, 4, 3)))
-
-tree = parse_tuple_to_tree(((3, 2, None), 1, (None, 4, 5)))
+# tree = parse_tuple_to_tree(((3, 2, None), 1, (None, 4, 5)))
 
 tuple_data = parse_tree_to_tuple(tree)
 print(tuple_data)
